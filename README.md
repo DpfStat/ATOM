@@ -1,2 +1,2 @@
 # ATOM
-Aton scrips
+Atom scrips
