@@ -29,6 +29,7 @@ def fitting(M = 0):
     plt.plot(x_points, fit_func(p_lsq[0], x_points), label = "fitted curve")
     plt.plot(x, y, "bo", label = "noise")
     plt.legend()
+    plt.show()
     return p_lsq
 
 p_lsq_0 = fitting(M=0)
