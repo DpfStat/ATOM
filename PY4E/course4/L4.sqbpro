@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/Pengfei/Desktop/Projects/Python/PY4E/course4/L4.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="696"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainMember"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Course" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="18"/><column index="2" value="45"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Member" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="46"/><column index="2" value="58"/><column index="3" value="29"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="User" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="18"/><column index="2" value="36"/><column index="3" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="136"/><column index="2" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">create table User (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	name TEXT,
+	email TEXT
+	);
+	
+CREATE TABLE Course(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	title TEXT);
+	
+CREATE TABLE Member(
+	user_id INTEGER,
+	course_id INTEGER,
+	role INTEGER,
+	PRIMARY KEY (user_id, course_id)
+	)</sql><sql name="SQL 2">insert into User(name, email) VALUES (&quot;Jane&quot;, &quot;jane@tsugi.org&quot;);
+insert into User(name, email) VALUES (&quot;Ed&quot;, &quot;ed@tsugi.org&quot;);
+insert into User(name, email) VALUES (&quot;Sue&quot;, &quot;sue@tsugi.org&quot;);
+insert into Course(title) VALUES (&quot;Python&quot;);
+insert into Course(title) VALUES (&quot;SQL&quot;);
+insert into Course(title) VALUES (&quot;PHP&quot;)</sql><sql name="SQL 3">INSERT INTO Member(user_id, course_id, role) VALUES (1, 1, 1);
+INSERT INTO Member(user_id, course_id, role) VALUES (2, 1, 0);
+INSERT INTO Member(user_id, course_id, role) VALUES (3, 1, 0);
+INSERT INTO Member(user_id, course_id, role) VALUES (1, 2, 0);
+INSERT INTO Member(user_id, course_id, role) VALUES (2, 2, 1);
+INSERT INTO Member(user_id, course_id, role) VALUES (2, 3, 1);
+INSERT INTO Member(user_id, course_id, role) VALUES (3, 3, 0)</sql><sql name="SQL 4">SELECT User.name, Member.role, Course.title FROM User JOIN Member JOIN Course
+on Member.user_id = User.id and Member.course_id = Course.id
+ORDER BY Course.title, Member.role DESC, User.name</sql><current_tab id="0"/></tab_sql></sqlb_project>
